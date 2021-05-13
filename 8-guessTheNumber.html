@@ -1,0 +1,38 @@
+<meta charset="utf-8">
+<script type="text/javascript">
+
+	function isNumValid(num, minNum, maxNum) {
+		if (isNaN(num) || num < minNum || num > maxNum) {
+			return false;
+		}
+		return true;
+	}
+	
+	const maxNumber = 100;
+	const answer = parseInt(Math.random() *  maxNumber);
+	const maxTryCount = 10;
+	let userAnswer;
+
+	alert("Добро пожаловать! Вы должны отгадать число от 0 до " + maxNumber);
+
+	for(let tryCount = 0; tryCount < maxTryCount; tryCount++) {
+
+		do {
+			userAnswer = +prompt("Введите число от 0 до " + maxNumber + ". У вас " + (maxTryCount - tryCount) + " попыток.");
+		} while (!isNumValid(userAnswer, 0, maxNumber))
+
+		if (userAnswer == answer) {
+			alert("Вы угадали!")
+			break;
+		} else if(userAnswer < answer) {
+			alert("Заданное число больше Вашего");
+		} else {
+			alert("Заданное число меньше Вашего");
+		}
+	}
+
+	if (userAnswer != answer) {
+		alert("Вы не угадали! :( Правильный ответ: " + answer);
+	}
+
+</script>
