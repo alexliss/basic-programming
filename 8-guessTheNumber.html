@@ -2,8 +2,9 @@
 <script type="text/javascript">
 
 	function isNumValid(num, minNum, maxNum) {
-		if (isNaN(num) || num < minNum || num > maxNum)
+		if (isNaN(num) || num < minNum || num > maxNum) {
 			return false;
+		}
 		return true;
 	}
 	
@@ -33,6 +34,5 @@
 	if (userAnswer != answer) {
 		alert("Вы не угадали! :( Правильный ответ: " + answer);
 	}
-
 
 </script>
