@@ -7,6 +7,7 @@
 			return true;
 		}
 		return false;
+		
 	}
 	
 	let riddles = ["Висит груша, нельзя скушать.", "Речка спятила с ума — по домам пошла сама.", "Если б не было его, не сказал бы ничего."];
@@ -15,6 +16,7 @@
 	let score = parseInt(0, 10);
 
 	for (let i = 0; i < riddles.length; i++) {
+		
 		userAnswer = prompt("Загадка: " + riddles[i] + " Введите ответ:");
 
 		if (isAnswer(answers[i], userAnswer)) {
@@ -23,6 +25,7 @@
 		} else {
 			alert("Вы не угадали! Правильный ответ: " + answers[i]);
 		}
+		
 	}
 
 	alert("Игра окончена! Ваш счет: " + score);
