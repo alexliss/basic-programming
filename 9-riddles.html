@@ -1,0 +1,30 @@
+<meta charset="utf-8">
+<script type="text/javascript">
+
+	function isAnswer(answer, userAnswer) {
+
+		if (answer.toLowerCase() == userAnswer.toLowerCase()) {
+			return true;
+		}
+		return false;
+	}
+	
+	let riddles = ["Висит груша, нельзя скушать.", "Речка спятила с ума — по домам пошла сама.", "Если б не было его, не сказал бы ничего."];
+	let answers = ["Лампочка", "Водопровод", "Язык"];
+	let userAnswer;
+	let score = parseInt(0, 10);
+
+	for (let i = 0; i < riddles.length; i++) {
+		userAnswer = prompt("Загадка: " + riddles[i] + " Введите ответ:");
+
+		if (isAnswer(answers[i], userAnswer)) {
+			alert("Вы угадали!");
+			score++;
+		} else {
+			alert("Вы не угадали! Правильный ответ: " + answers[i]);
+		}
+	}
+
+	alert("Игра окончена! Ваш счет: " + score);
+
+</script>
