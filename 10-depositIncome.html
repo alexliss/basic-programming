@@ -1,0 +1,17 @@
+<meta charset="utf-8">
+<script type="text/javascript">
+	
+	const money = parseFloat(prompt("Введите сумму в рублях (без копеек, мы ж 2021 году!)"));
+	let interestRate = parseFloat(prompt("Введите процентную ставку (в процентах)"));
+	const years = prompt("На сколько лет вклад?");
+	let result = money;
+
+
+	interestRate /= 100;
+
+	for (let year = 1; year <= years; year++) {
+		result += result * interestRate;
+		document.writeln(year + " год: " + result.toFixed(2));
+	}
+
+</script>
