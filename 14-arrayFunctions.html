@@ -1,0 +1,63 @@
+<meta charset="utf-8">
+<script type="text/javascript">
+
+	function numberArray(maxNumber) {
+		let array = [];
+		for (let i = 1; i <= maxNumber; i++) {
+			array.push(i);
+		}
+		return array;
+	}
+
+	function arraySum(array) {
+		let sum = 0;
+		for (let i = 0; i < array.length; i++) {
+			sum += array[i];
+		}
+		return sum;
+	}
+
+	function arrayMax(array) {
+		let max = array[0];
+		for (let i = 1; i < array.length; i++) {
+			if (array[i] > max) {
+				max = array[i];
+			}
+		}
+		return max;
+	}
+
+	function arrayMin(array) {
+		let min = array[0];
+		for (let i = 1; i < array.length; i++) {
+			if (array[i] < min) {
+				min = array[i];
+			}
+		}
+		return min;
+	}
+
+	function evenNumbers(array) {
+		let evens = [];
+		for (let i = 0; i < array.length; i++) {
+			if (array[i] % 2 == 0) {
+				evens.push(array[i]);
+			}
+		}
+		return evens;
+	}
+
+	let testArray = [2, 8, 16, -2, 20, 1, -5, 8];
+
+	alert(testArray);
+	alert(arrayMax(testArray));
+	alert(arrayMin(testArray));
+	alert(evenNumbers(testArray));
+
+	testArray = numberArray(12);
+
+	alert(testArray);
+	alert(arraySum(testArray));
+	alert(evenNumbers(testArray));
+
+</script>
