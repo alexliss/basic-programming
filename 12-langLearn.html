@@ -1,0 +1,46 @@
+<meta charset="utf-8">
+<script type="text/javascript">
+
+	function isAnswer(answer, userAnswer) {
+		if (answer.toLowerCase() == userAnswer.toLowerCase()) {
+			return true;
+		}
+		return false;
+	}
+
+	function wordAsk(words) {
+		let randomPair;
+		let answer;
+		while (words.length != 0) {
+			randomPair = parseInt(Math.random() * (words.length - 1));
+			answer = prompt("Как переводится слово " + words[randomPair][0] + "?");
+			if (isAnswer(answer, words[randomPair][1])) {
+				alert("Правильно!");
+				words.splice(randomPair, 1);
+			} else {
+				alert("Неправильно! Ответ: " + words[randomPair][1]);
+			}
+		}
+	}
+
+	let easyWords = [
+		["apple", "яблоко"],
+		["cat", "кот"],
+		["pencil", "карандаш"],
+		["chess", "шахматы"],
+		["mirror", "зеркало"]
+	]
+
+	let hardWords = [
+		["razor", "лезвие"],
+		["shark", "акула"],
+		["wallpaper", "обои"],
+		["film", "пленка"],
+		["magazine", "журнал"]
+	]
+
+	wordAsk(easyWords);
+	alert("Следующий уровень!");
+	wordAsk(hardWords);
+
+</script>
