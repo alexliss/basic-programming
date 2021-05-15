@@ -1,0 +1,35 @@
+<meta charset="utf-8">
+<script type="text/javascript">
+
+	function random(max) {
+		return Math.round(Math.random() * max);
+	}
+
+	function generateArray(length, max) {
+		let numArray = [];
+
+		for (let i = 0; i < length; i++) {
+			numArray.push(random(max));
+		}
+
+		return numArray;
+	}
+
+	let numbers = generateArray(5, 100);
+	let answer;
+	let randomNum;
+
+	alert ("Запомните числа: " + numbers);
+
+	for (let i = 0; i < 4; i++) {
+		randomNum = parseInt(random(numbers.length - 1));
+		answer = +prompt("Какое число было под номером " + (randomNum + 1) + "?");
+
+		if (numbers[randomNum] == answer) {
+			alert("Правильно!");
+		} else {
+			alert("Неправильно! Ответ: " + numbers[randomNum]);
+		}
+	}
+
+</script>
