@@ -1,0 +1,42 @@
+<meta charset="utf-8">
+<script type="text/javascript">
+
+	function random(max) {
+		return Math.round(Math.random() * max);
+	}
+
+	function generateText(letters, length) {
+		let text = "";
+		for (let i = 0; i < length; i++) {
+			text += letters[random(letters.length - 1)];
+		}
+		return text;
+	}
+
+	function startLevel(letters, length) {
+		let text = generateText(letters, 10);
+		let answer;
+
+		alert("Поставьте мизинец левой руки на букву Ф, безымянный палец — на Ы, средний — на В, указательный — на А. Мизинец правой руки на букву Ж, безымянный палец — на Д, средний — на Л, указательный — на О. Запомните расположение пальцев. Повторяйте за мной");
+
+		while (true) {
+			answer = prompt("Напечатайте эту строчку, не смотря на клавиатуру: " + text);
+			
+			if (answer == text) {
+				alert("Правильно! Уровень пройден!");
+				break;
+			} else {
+				alert("Есть ошибки, попробуйте еще раз!");
+			}
+		}
+	}
+
+	alert("Добро пожаловать в программу тренировки слепой печати!");
+	
+	startLevel(["ф", "а"], 10);
+	startLevel(["ы", "в"], 10);
+	startLevel(["о", "ж"], 10);
+
+	alert("Конец!");
+	
+</script>
