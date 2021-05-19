@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Скучный сайт</title>
+	<link rel="stylesheet" href="style.css"> 
+	<script type="text/javascript">
+
+		const maxNumber = 100;
+		const maxTryCount = 10;
+		let tryCount = maxTryCount;
+		let answer = parseInt(Math.random() *  maxNumber);
+
+		function getInt(inputId) {
+			const number = document.getElementById(inputId).value;
+			return parseInt(number);
+		}
+
+		function write(outputId, newText) {
+			document.getElementById(outputId).innerHTML = newText;
+		}
+
+		function hide(id) {
+			document.getElementById(id).style.display = "none";
+		}
+
+		function show(id) {
+			document.getElementById(id).style.display = "inline-block";
+		}
+
+		function isNumValid(num, minNum, maxNum) {
+			if (isNaN(num) || num < minNum || num > maxNum) {
+				return false;
+			}
+			return true;
+		}
+
+		function start() {
+			tryCount = maxTryCount;
+			answer = parseInt(Math.random() *  maxNumber);
+
+			hide("start");
+			show("inGame");
+			show("answerInput");
+			write("info", "Введите число от 0 до " + maxNumber + ". У вас <b>" + maxTryCount + "</b> попыток.");
+		}
+
+		function guess() {
+			let userAnswer = getInt("answerInput");
+			tryCount--;
+			if (userAnswer == answer) {
+				write("info", "<b>Вы угадали! :з</b> Можете попробовать еще раз!");
+				hide("answerInput");
+				hide("inGame");
+				show("start");
+				return;
+			} else if (tryCount == 0) {
+				write("info", "<b>Вы не угадали! :(</b> Правильный ответ: <b>" + answer + "</b>. Можете попробовать еще раз!");
+				hide("answerInput");
+				hide("inGame");
+				show("start");
+			} else if(userAnswer < answer) {
+				write("info", "Заданное число больше Вашего. У вас осталось <b>" + tryCount + "</b> попыток. Введите новое число:");
+			} else {
+				write("info", "Заданное число меньше Вашего. У вас осталось <b>" + tryCount + "</b> попыток. Введите новое число:");
+			}
+		}
+		
+	</script>
+</head>
+<body>
+
+<div class="content">
+	<div class="header">
+		<a href="index.html">Главная</a>
+		<a href="riddles.html">Загадки</a>
+		<a href="guess.html">Угадайка</a>
+		<a href="passwordGenerator.html">Генератор паролей</a>
+	</div>
+
+	<div class="contentWrap">
+		<div class="content">
+			<div class="center">
+
+				<h1>Угадай число</h1>
+
+				<div class="box">
+
+					<p id="info">Для начала нажмите на кнопку "Начать". &copy; Капитан Очевидность</p>
+					<input type="text" id="answerInput">
+					<br>
+					<a href="#" id="start" onclick="start();">Начать</a>
+					<a href="#" id="inGame" onclick="guess();">Проверить число</a>
+					
+					
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="footer">
+	Copyright &copy; redspot
+<div>
+
+
+</body>
+</html>
