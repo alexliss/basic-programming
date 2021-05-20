@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Скучный сайт</title>
+	<link rel="stylesheet" href="style.css"> 
+	<script type="text/javascript">
+
+		let score = 0;
+
+		function checkAnswer(inputId, correctAnswer) {
+			let userAnswer = document.getElementById(inputId).value;
+			userAnswer = userAnswer.toLowerCase();
+			if (userAnswer == correctAnswer) {
+				score++;
+			}
+		}
+
+		function checkAnswers() {
+
+			checkAnswer("userAnswer1", "лампочка");
+			checkAnswer("userAnswer2", "водопровод");
+			checkAnswer("userAnswer3", "язык");
+
+			alert("Вы угадали " + score + " загадок");
+
+		}
+		
+	</script>
+</head>
+<body>
+
+<div class="content">
+	<div class="header">
+		<a href="index.html">Главная</a>
+		<a href="riddles.html">Загадки</a>
+		<a href="guess.html">Угадайка</a>
+		<a href="passwordGenerator.html">Генератор паролей</a>
+	</div>
+
+	<div class="contentWrap">
+		<div class="content">
+			<div class="center">
+
+				<h1>Допустим, загадки</h1>
+
+				<div class="box">
+					<p>Висит груша - нельзя скушать</p>
+					<input type="text" id="userAnswer1">
+
+					<p>Речка спятила с ума - по домам пошла сама</p>
+					<input type="text" id="userAnswer2">
+
+					<p>Если б не было его, не сказал бы ничего</p>
+					<input type="text" id="userAnswer3">
+
+					<br>
+					<a href="#" onClick="checkAnswers();">Ответить</a>
+					
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="footer">
+	Copyright &copy; redspot
+<div>
+
+
+</body>
+</html>
